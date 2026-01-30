@@ -7,3 +7,15 @@ Backend de una plataforma e-commerce para productos artesanales.
 - Spring Boot
 - Maven
 - PostgreSQL
+
+## Arquitectura
+- Arquitectura Hexagonal
+    - domain
+    - application
+    - infrastructure
+
+## Perfiles
+- dev (desarrollo)
+- prod (producción)
+
+Proyecto en desarrollo.
