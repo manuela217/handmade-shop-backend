@@ -1,4 +1,4 @@
-package com.handmade.ecommerce.backend.infrastructure;
+package com.handmade.ecommerce.backend.infrastructure.entity;
 
 import com.handmade.ecommerce.backend.domain.model.UserType;
 import jakarta.persistence.*;

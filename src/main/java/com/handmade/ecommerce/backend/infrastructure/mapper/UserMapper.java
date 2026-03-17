@@ -1,7 +1,7 @@
 package com.handmade.ecommerce.backend.infrastructure.mapper;
 
 import com.handmade.ecommerce.backend.domain.model.User;
-import com.handmade.ecommerce.backend.infrastructure.UserEntity;
+import com.handmade.ecommerce.backend.infrastructure.entity.UserEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
