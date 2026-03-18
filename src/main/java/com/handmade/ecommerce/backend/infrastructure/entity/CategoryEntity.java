@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +19,6 @@ public class CategoryEntity {
     private String name;
     @CreationTimestamp
     private LocalDateTime dateCreated;
-    @CreationTimestamp
+    @UpdateTimestamp
     private LocalDateTime dateUpdated;
 }
