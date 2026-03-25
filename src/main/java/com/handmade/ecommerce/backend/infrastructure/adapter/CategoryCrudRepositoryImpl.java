@@ -34,6 +34,9 @@ public class CategoryCrudRepositoryImpl implements ICategoryRepository {
 
     @Override
     public void deleteById(Integer id) {
+        iCategoryCrudRepository.findById(id).orElseThrow(
+                ()-> new RuntimeException("La categoría con id: " + id + " no existe")
+        );
         iCategoryCrudRepository.deleteById(id);
     }
 }
