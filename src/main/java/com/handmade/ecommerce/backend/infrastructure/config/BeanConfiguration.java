@@ -1,9 +1,12 @@
 package com.handmade.ecommerce.backend.infrastructure.config;
 
 import com.handmade.ecommerce.backend.application.CategoryService;
+import com.handmade.ecommerce.backend.application.ProductService;
 import com.handmade.ecommerce.backend.application.UserService;
 import com.handmade.ecommerce.backend.domain.port.ICategoryRepository;
+import com.handmade.ecommerce.backend.domain.port.IProductRepository;
 import com.handmade.ecommerce.backend.domain.port.IUserRepository;
+import com.handmade.ecommerce.backend.infrastructure.adapter.IProductCrudRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,5 +20,10 @@ public class BeanConfiguration {
     @Bean
     public CategoryService categoryService(ICategoryRepository iCategoryRepository) {
         return new CategoryService(iCategoryRepository);
+    }
+
+    @Bean
+    public ProductService productService(IProductRepository iProductRepository) {
+        return new ProductService(iProductRepository);
     }
 }
