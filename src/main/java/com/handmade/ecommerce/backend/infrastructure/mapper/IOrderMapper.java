@@ -14,14 +14,14 @@ public interface IOrderMapper {
                     @Mapping(source = "id", target = "id"),
                     @Mapping(source = "dateCreated", target = "dateCreated"),
                     @Mapping(source = "orderProducts", target = "orderProducts"),
-                    @Mapping(source = "state", target = "state"),
+                    @Mapping(source = "orderState", target = "orderState"),
                     @Mapping(source = "userEntity.id", target = "userId")
             }
     )
+
     Order toOrder(OrderEntity orderEntity);
     Iterable<Order> toOrderList(Iterable<OrderEntity> orderEntities);
 
     @InheritInverseConfiguration
-    @Mapping(target = "userEntity", ignore = true)
     OrderEntity toOrderEntity(Order order);
 }
