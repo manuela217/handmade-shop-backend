@@ -16,6 +16,6 @@ public class OrderProductEntity {
     private BigDecimal price;
     private Integer productId;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity userEntity;
+    @JoinColumn(name = "order_id")
+    private OrderEntity orderEntity;
 }
