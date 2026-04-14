@@ -2,7 +2,9 @@ package com.handmade.ecommerce.backend.application;
 
 import com.handmade.ecommerce.backend.domain.model.Order;
 import com.handmade.ecommerce.backend.domain.port.IOrderRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OrderService {
     private final IOrderRepository iOrderRepository;
 
