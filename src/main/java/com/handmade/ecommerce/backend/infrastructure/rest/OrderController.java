@@ -32,4 +32,14 @@ public class OrderController {
     public ResponseEntity<Iterable<Order>> findAll() {
         return ResponseEntity.ok(orderService.findAll());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Order> findById(@PathVariable Integer id) {
+        return ResponseEntity.ok(orderService.findById(id));
+    }
+
+    @GetMapping("/by-user/{userId}")
+    public ResponseEntity<Iterable<Order>> findByUserId(@PathVariable Integer userId) {
+        return ResponseEntity.ok(orderService.findByUserId(userId));
+    }
 }
