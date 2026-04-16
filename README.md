@@ -168,10 +168,24 @@ http://localhost:8080
 Se recomienda crear una colección con:
 
 * Users
+  * Create user
+  * Get user by id
 * Categories
+  * Create category
+  * Get all categories
+  * Get category by id
+  * Delete category by id
 * Products
+  * Create product
+  * Get product by id
+  * Get all products
+  * Delete product by id
 * Orders
-* Update orders
+  * Create order
+  * Get order by id
+  * Get all orders
+  * Get orders by id user
+  * Update by id
 
 ---
 
