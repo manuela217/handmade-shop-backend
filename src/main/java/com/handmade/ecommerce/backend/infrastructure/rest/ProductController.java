@@ -22,7 +22,6 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<Product> save(
-            @RequestParam("id") Integer id,
             @RequestParam("code") String code,
             @RequestParam("name") String name,
             @RequestParam("description") String description,
@@ -33,7 +32,6 @@ public class ProductController {
             ) {
 
         Product product = new Product();
-        product.setId(id);
         product.setCode(code);
         product.setName(name);
         product.setDescription(description);
