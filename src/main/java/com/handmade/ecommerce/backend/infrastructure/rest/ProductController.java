@@ -44,6 +44,34 @@ public class ProductController {
         return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
     }
 
+    @PutMapping
+    public ResponseEntity<Product> update(
+            @RequestParam("id") Integer id,
+            @RequestParam("code") String code,
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("price") BigDecimal price,
+            @RequestParam("urlImage") String urlImage,
+            @RequestParam("userId") Integer userId,
+            @RequestParam("categoryId") Integer categoryId
+    ) {
+
+        Product product = new Product();
+
+        product.setId(id);
+        product.setCode(code);
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setCategoryId(categoryId);
+        product.setUserId(userId);
+        product.setUrlImage(urlImage);
+
+        log.info("Actualizando producto ID: {}", product.getId());
+
+        return ResponseEntity.ok(productService.save(product));
+    }
+
     @GetMapping
     public  ResponseEntity<Iterable<Product>> findAll() {
         return ResponseEntity.ok(productService.findAll());
