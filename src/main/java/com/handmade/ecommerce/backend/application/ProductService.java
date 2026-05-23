@@ -2,15 +2,29 @@ package com.handmade.ecommerce.backend.application;
 
 import com.handmade.ecommerce.backend.domain.model.Product;
 import com.handmade.ecommerce.backend.domain.port.IProductRepository;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 public class ProductService {
     private final IProductRepository iProductRepository;
+    private final UploadFile uploadFile;
 
-    public ProductService(IProductRepository iProductRepository) {
+    public ProductService(IProductRepository iProductRepository, UploadFile uploadFile) {
         this.iProductRepository = iProductRepository;
+        this.uploadFile = uploadFile;
     }
 
-    public Product save (Product product){
+    public Product save (Product product, MultipartFile multipartFile) throws IOException {
+        if (product.getId() != null) { // Para un artículo modificado
+            if(multipartFile==null) {
+                product.setUrlImage(product.getUrlImage());
+            } else {
+                product.setUrlImage(uploadFile.upload(multipartFile));
+            }
+        } else { // Para un artículo nuevo
+            product.setUrlImage(uploadFile.upload(multipartFile));
+        }
         return this.iProductRepository.save(product);
     }
 

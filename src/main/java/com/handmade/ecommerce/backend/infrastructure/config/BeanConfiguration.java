@@ -1,9 +1,6 @@
 package com.handmade.ecommerce.backend.infrastructure.config;
 
-import com.handmade.ecommerce.backend.application.CategoryService;
-import com.handmade.ecommerce.backend.application.OrderService;
-import com.handmade.ecommerce.backend.application.ProductService;
-import com.handmade.ecommerce.backend.application.UserService;
+import com.handmade.ecommerce.backend.application.*;
 import com.handmade.ecommerce.backend.domain.port.ICategoryRepository;
 import com.handmade.ecommerce.backend.domain.port.IOrderRepository;
 import com.handmade.ecommerce.backend.domain.port.IProductRepository;
@@ -25,8 +22,8 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public ProductService productService(IProductRepository iProductRepository) {
-        return new ProductService(iProductRepository);
+    public ProductService productService(IProductRepository iProductRepository, UploadFile uploadFile) {
+        return new ProductService(iProductRepository, uploadFile);
     }
 
     @Bean
