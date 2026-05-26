@@ -2,10 +2,12 @@ package com.handmade.ecommerce.backend.application;
 
 import com.handmade.ecommerce.backend.domain.model.Product;
 import com.handmade.ecommerce.backend.domain.port.IProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+@Slf4j
 public class ProductService {
     private final IProductRepository iProductRepository;
     private final UploadFile uploadFile;
@@ -20,6 +22,10 @@ public class ProductService {
             if(multipartFile==null) {
                 product.setUrlImage(product.getUrlImage());
             } else {
+                String name = product.getUrlImage().replace("http://localhost:8080/images/", "");
+                if (!name.equals("default.jpg")) {
+                    uploadFile.delete(name);
+                }
                 product.setUrlImage(uploadFile.upload(multipartFile));
             }
         } else { // Para un artículo nuevo
@@ -37,6 +43,11 @@ public class ProductService {
     }
 
     public void deleteById(Integer id){
+        Product product = findById(id);
+        String name = product.getUrlImage().replace("http://localhost:8080/images/", "");
+        if (!name.equals("default.jpg")) {
+            uploadFile.delete(name);
+        }
         this.iProductRepository.deleteById(id);
     }
 }
