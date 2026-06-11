@@ -23,6 +23,13 @@ public class CategoryController {
         return new ResponseEntity<>(categoryService.save(category), HttpStatus.CREATED);
     }
 
+    @PutMapping
+    public ResponseEntity<Category> update(@RequestBody Category category) {
+        return ResponseEntity.ok(
+                categoryService.save(category)
+        );
+    }
+
     @GetMapping
     public ResponseEntity<Iterable<Category>> findAll() {
         return ResponseEntity.ok(categoryService.findAll());
