@@ -8,6 +8,7 @@ import com.handmade.ecommerce.backend.domain.port.IUserRepository;
 import com.handmade.ecommerce.backend.infrastructure.adapter.IProductCrudRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class BeanConfiguration {
@@ -38,7 +39,7 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public RegistrationService registrationService(IUserRepository iUserRepository) {
-        return new RegistrationService(iUserRepository);
+    public RegistrationService registrationService(IUserRepository iUserRepository, BCryptPasswordEncoder passwordEncoder) {
+        return new RegistrationService(iUserRepository,passwordEncoder);
     }
 }
