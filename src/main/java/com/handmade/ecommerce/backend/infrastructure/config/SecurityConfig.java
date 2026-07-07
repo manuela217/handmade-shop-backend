@@ -21,7 +21,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable()).authorizeHttpRequests(
-                aut -> aut.requestMatchers("/api/v1/security/**").permitAll().anyRequest().authenticated()
+                aut -> aut
+                        .requestMatchers("/api/v1/admin/categories/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/admin/products/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/orders/**").hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/api/v1/home/**").permitAll()
+                        .requestMatchers("/api/v1/security/**").permitAll().anyRequest().authenticated()
         );
 
         return httpSecurity.build();

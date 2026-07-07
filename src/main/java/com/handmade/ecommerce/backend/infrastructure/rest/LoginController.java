@@ -1,6 +1,7 @@
 package com.handmade.ecommerce.backend.infrastructure.rest;
 
 import com.handmade.ecommerce.backend.infrastructure.dto.UserDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1/security")
+@Slf4j
 public class LoginController {
 
     private final AuthenticationManager authenticationManager;
@@ -29,6 +31,8 @@ public class LoginController {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        log.info("Rol de usuario: {}",SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().findFirst().get().toString());
 
         return new ResponseEntity<>("Se ha iniciado sesión correctamente", HttpStatus.OK);
     }
