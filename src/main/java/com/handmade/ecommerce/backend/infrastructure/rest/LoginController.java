@@ -1,5 +1,7 @@
 package com.handmade.ecommerce.backend.infrastructure.rest;
 
+import com.handmade.ecommerce.backend.application.UserService;
+import com.handmade.ecommerce.backend.domain.model.User;
 import com.handmade.ecommerce.backend.infrastructure.dto.JWTClient;
 import com.handmade.ecommerce.backend.infrastructure.dto.UserDTO;
 import com.handmade.ecommerce.backend.infrastructure.jwt.JWTGenerator;
@@ -20,10 +22,12 @@ public class LoginController {
 
     private final AuthenticationManager authenticationManager;
     private final JWTGenerator jwtGenerator;
+    private final UserService userService;
 
-    public LoginController(AuthenticationManager authenticationManager, JWTGenerator jwtGenerator) {
+    public LoginController(AuthenticationManager authenticationManager, JWTGenerator jwtGenerator, UserService userService) {
         this.authenticationManager = authenticationManager;
         this.jwtGenerator = jwtGenerator;
+        this.userService = userService;
     }
 
     @PostMapping("/login")
@@ -36,8 +40,10 @@ public class LoginController {
 
         log.info("Rol de usuario: {}",SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().findFirst().get().toString());
 
+        User user = userService.findByEmail(userDTO.email());
+
         String token = jwtGenerator.getToken(userDTO.email());
-        JWTClient jwtClient = new JWTClient(token);
+        JWTClient jwtClient = new JWTClient(user.getId(),token);
 
         return new ResponseEntity<>(jwtClient, HttpStatus.OK);
     }
