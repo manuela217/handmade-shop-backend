@@ -243,7 +243,10 @@ Los endpoints pueden probarse mediante **Postman** utilizando:
 
 - Tests unitarios
 - Tests de integración
-- Docker Compose
+- Docker Compose para entorno completo
+- Documentación OpenAPI / Swagger
+- Refactorización de la gestión de autenticación JWT
+- Validaciones adicionales y manejo global de excepciones
 
 ---
 
@@ -274,4 +277,4 @@ Proyecto de portfolio como desarrolladora backend/fullstack junior
 
 ---
 
-> Este proyecto forma parte de mi portfolio personal y tiene un propósito educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Java y Spring Boot.
+> Este proyecto forma parte de mi portfolio personal y tiene un propósito únicamente educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Java y Spring Boot.
