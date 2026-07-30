@@ -43,7 +43,7 @@ public class LoginController {
         User user = userService.findByEmail(userDTO.email());
 
         String token = jwtGenerator.getToken(userDTO.email());
-        JWTClient jwtClient = new JWTClient(user.getId(),token);
+        JWTClient jwtClient = new JWTClient(user.getId(),token, user.getUserType());
 
         return new ResponseEntity<>(jwtClient, HttpStatus.OK);
     }

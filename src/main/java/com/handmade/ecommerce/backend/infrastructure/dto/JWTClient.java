@@ -1,4 +1,6 @@
 package com.handmade.ecommerce.backend.infrastructure.dto;
 
-public record JWTClient(Integer id, String token) {
+import com.handmade.ecommerce.backend.domain.model.UserType;
+
+public record JWTClient(Integer id, String token, UserType userType) {
 }
