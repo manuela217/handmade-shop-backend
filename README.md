@@ -245,7 +245,9 @@ Los endpoints pueden probarse mediante **Postman** utilizando:
 - Tests de integración
 - Docker Compose para entorno completo
 - Documentación OpenAPI / Swagger
-- Refactorización de la gestión de autenticación JWT
+- Gestión de usuarios desde el panel de administración
+- Endpoints para consulta del historial de pedidos por usuario
+- Refactorización de la gestión de autenticación y autorización JWT
 - Validaciones adicionales y manejo global de excepciones
 
 ---
