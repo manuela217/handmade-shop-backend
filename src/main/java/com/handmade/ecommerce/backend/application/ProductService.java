@@ -2,12 +2,9 @@ package com.handmade.ecommerce.backend.application;
 
 import com.handmade.ecommerce.backend.domain.model.Product;
 import com.handmade.ecommerce.backend.domain.port.IProductRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 
-@Slf4j
 public class ProductService {
     private final IProductRepository iProductRepository;
     private final UploadFile uploadFile;
@@ -18,7 +15,7 @@ public class ProductService {
     }
 
     public Product save (Product product, MultipartFile multipartFile) throws IOException {
-        if (product.getId() != null) { // Para un artículo modificado
+        if (product.getId() != null) {
             if(multipartFile==null) {
                 product.setUrlImage(product.getUrlImage());
             } else {
@@ -28,7 +25,7 @@ public class ProductService {
                 }
                 product.setUrlImage(uploadFile.upload(multipartFile));
             }
-        } else { // Para un artículo nuevo
+        } else {
             product.setUrlImage(uploadFile.upload(multipartFile));
         }
         return this.iProductRepository.save(product);
