@@ -5,7 +5,6 @@ import com.handmade.ecommerce.backend.domain.port.ICategoryRepository;
 import com.handmade.ecommerce.backend.domain.port.IOrderRepository;
 import com.handmade.ecommerce.backend.domain.port.IProductRepository;
 import com.handmade.ecommerce.backend.domain.port.IUserRepository;
-import com.handmade.ecommerce.backend.infrastructure.adapter.IProductCrudRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
