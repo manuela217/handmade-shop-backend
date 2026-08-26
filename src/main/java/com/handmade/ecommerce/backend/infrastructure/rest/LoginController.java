@@ -5,7 +5,6 @@ import com.handmade.ecommerce.backend.domain.model.User;
 import com.handmade.ecommerce.backend.infrastructure.dto.JWTClient;
 import com.handmade.ecommerce.backend.infrastructure.dto.UserDTO;
 import com.handmade.ecommerce.backend.infrastructure.jwt.JWTGenerator;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/v1/security")
 @CrossOrigin(origins = "http://localhost:4200")
-@Slf4j
 public class LoginController {
 
     private final AuthenticationManager authenticationManager;
@@ -37,8 +35,6 @@ public class LoginController {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        log.info("Rol de usuario: {}",SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().findFirst().get().toString());
 
         User user = userService.findByEmail(userDTO.email());
 

@@ -2,7 +2,6 @@ package com.handmade.ecommerce.backend.infrastructure.rest;
 
 import com.handmade.ecommerce.backend.application.ProductService;
 import com.handmade.ecommerce.backend.domain.model.Product;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,6 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/v1/admin/products")
-@Slf4j
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
     private final ProductService productService;
@@ -43,7 +41,6 @@ public class ProductController {
         product.setUserId(userId);
         product.setUrlImage(urlImage);
 
-        log.info("Nombre producto: {}", product.getName());
         return new ResponseEntity<>(productService.save(product, multipartFile), HttpStatus.CREATED);
     }
 
@@ -61,7 +58,6 @@ public class ProductController {
     ) throws IOException {
 
         Product product = new Product();
-
         product.setId(id);
         product.setCode(code);
         product.setName(name);
@@ -70,8 +66,6 @@ public class ProductController {
         product.setCategoryId(categoryId);
         product.setUserId(userId);
         product.setUrlImage(urlImage);
-
-        log.info("Actualizando producto ID: {}", product.getId());
 
         return ResponseEntity.ok(productService.save(product, multipartFile));
     }
