@@ -279,4 +279,4 @@ Proyecto de portfolio como desarrolladora Backend / Full Stack Junior
 
 ---
 
-> Este proyecto forma parte de mi portfolio personal y tiene un propósito educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Angular y desarrollo Full Stack.
+> Este proyecto forma parte de mi portfolio personal y tiene un propósito educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Spring Boot y desarrollo Full Stack.
