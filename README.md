@@ -272,11 +272,11 @@ Durante el desarrollo de este proyecto se han aplicado conceptos como:
 
 Desarrollado por Manuela Mendoza Barba
 
-Proyecto de portfolio como desarrolladora backend/fullstack junior
+Proyecto de portfolio como desarrolladora Backend / Full Stack Junior
 
 - GitHub: https://github.com/manuela217
 - LinkedIn: https://www.linkedin.com/in/manuela-mendoza-barba/
 
 ---
 
-> Este proyecto forma parte de mi portfolio personal y tiene un propósito únicamente educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Java y Spring Boot.
+> Este proyecto forma parte de mi portfolio personal y tiene un propósito educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Angular y desarrollo Full Stack.
